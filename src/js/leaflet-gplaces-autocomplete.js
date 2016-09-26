@@ -4,8 +4,11 @@
     L.Control.GPlaceAutocomplete = L.Control.extend({
         options: {
             position: "topright",
-            prepend: true
+            prepend: true,
+            autocomplete_options: {}
         },
+
+        autocomplete: null,
 
         initialize: function (options) {
             if (options) {
@@ -25,11 +28,7 @@
             var searchBox = L.DomUtil.create("input", "leaflet-gac-control");
 
             // create and bind autocomplete
-            var autocomplete = new google.maps.places.Autocomplete(searchBox);
-            var callback = this.options.callback;
-            google.maps.event.addListener(autocomplete, "place_changed", function () {
-                callback(autocomplete.getPlace());
-            });
+            this.autocomplete = new google.maps.places.Autocomplete(searchBox, this.options.autocomplete_options);
 
             this.container.appendChild(
                 searchWrapper.appendChild(
@@ -38,9 +37,17 @@
             );
         },
 
-        onLocationComplete: function (location) {
+        onLocationComplete: function (place, map) {
             // default callback
-            this._map.panTo(location);
+            if(!place.geometry){
+                alert("Location not found");
+                return;
+            }
+            map.panTo([
+                place.geometry.location.lat(),
+                place.geometry.location.lng()
+            ]);
+
         },
 
         onAdd: function () {
@@ -60,6 +67,13 @@
             } else {
                 corner.appendChild(container)
             }
+
+            var callback = this.options.callback;
+            var _this = this;
+            google.maps.event.addListener(this.autocomplete, "place_changed", function () {
+                callback(_this.autocomplete.getPlace(), map);
+            });
+
             return this;
         }
 

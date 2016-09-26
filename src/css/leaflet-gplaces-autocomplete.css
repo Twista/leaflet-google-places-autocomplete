@@ -1,8 +1,12 @@
 .leaflet-control-container .leaflet-gac-control {
     width: 300px;
     height: 30px;
-    padding: 0 5px;
-    border-radius: 3px;
-    border: none;
+    padding: 0 7px;
+    border-radius: 5px;
+    border: 1px #d0d0d0 solid;
 }
+.leaflet-control-container .leaflet-gac-control:focus {
+    outline: none;
+}
+
 

@@ -2,7 +2,20 @@
 
 Simple extension to add google places autocomplete into map
 
+
+## Installation
+
+### Bower
+
+    bower install --save leaflet-google-places-autocomplete`
+
 ## Examples
+
+make sure you have google google places library on page
+
+```html
+    <script src="https://maps.googleapis.com/maps/api/js?key=<key>&libraries=places"></script>
+```
 
 ```javascript
 
@@ -35,3 +48,4 @@ Option                | Default       | Description
 `position`            | `topright`    | any valid LeafLet position
 `prepend`             | `true`:bool   | If true, controll will prepended to other existing controls, if false, control will be appended
 `callback`            | -             | any valid function as callback. By default internal callback is set and just pan the map to found position
+`autocomplete_options`| {}            | default options for google autocomplete
