@@ -1,6 +1,6 @@
 # Leaflet Google Places Autocomplete
 
-Simple extension to add google places autocomplete into map
+Simple extension to add Google Places autocomplete into map.
 
 
 ## Installation
@@ -11,7 +11,15 @@ Simple extension to add google places autocomplete into map
 
 ## Examples
 
-make sure you have google google places library on page
+### City autocomplete
+![City autocomplete](example/screen-city.png)
+
+### Places autocomplete
+![Places autocomplete](example/screen-poi.png)
+
+## Usage
+
+Make sure you have Google Places library **with valid API key** loaded on page.
 
 ```html
     <script src="https://maps.googleapis.com/maps/api/js?key=<key>&libraries=places"></script>
@@ -41,7 +49,7 @@ new L.Control.GPlaceAutocomplete({
 
 #### <a name="autocompleteOptions"></a> Options
 
-This options can be set up when creating the control with `autocompleteOptions`.
+These options can be set up when creating the control with `autocompleteOptions`.
 
 Option                | Default       | Description
 ----------------------|---------------|---------------------------------------------------------
