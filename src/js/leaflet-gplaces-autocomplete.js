@@ -51,6 +51,9 @@
         },
 
         onAdd: function () {
+            // stop propagation of click events
+            L.DomEvent.addListener(this.container, 'click', L.DomEvent.stop);
+            L.DomEvent.disableClickPropagation(this.container);
             return this.container;
         },
 
