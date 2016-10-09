@@ -54,6 +54,6 @@ These options can be set up when creating the control with `autocompleteOptions`
 Option                | Default       | Description
 ----------------------|---------------|---------------------------------------------------------
 `position`            | `topright`    | any valid LeafLet [position](http://leafletjs.com/reference.html#control-positions)
-`prepend`             | `true`:bool   | If true, controll will prepended to other existing controls, if false, control will be appended
+`prepend`             | `true`:bool   | If true, control will prepended to other existing controls, if false, control will be appended
 `callback`            | -             | any valid function as callback. By default internal callback is set and just pan the map to found position
 `autocomplete_options`| {}            | default options for google autocomplete
