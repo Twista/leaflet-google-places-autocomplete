@@ -9,6 +9,10 @@ Simple extension to add Google Places autocomplete into map.
 
     bower install --save leaflet-google-places-autocomplete
 
+### NPM
+
+    npm install --save leaflet-google-places-autocomplete
+
 ## Examples
 
 ### City autocomplete
