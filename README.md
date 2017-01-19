@@ -56,7 +56,7 @@ new L.Control.GPlaceAutocomplete({
 These options can be set up when creating the control with `autocompleteOptions`.
 
 Option                | Default       | Version | Description
-----------------------|---------------|---------------------------------------------------------
+----------------------|---------------|---------|--------------------------------------------------
 `position`            | `topright`    | v0.0.5  | any valid LeafLet [position](http://leafletjs.com/reference.html#control-positions)
 `prepend`             | `true`:bool   | v0.0.5  | If true, control will prepended to other existing controls, if false, control will be appended
 `callback`            | -             | v0.0.5  | any valid function as callback. By default internal callback is set and just pan the map to found position
