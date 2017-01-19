@@ -5,10 +5,15 @@
         options: {
             position: "topright",
             prepend: true,
+            collapsed_mode: false,
             autocomplete_options: {}
         },
 
+        collapsedModeIsExpanded: true,
+
         autocomplete: null,
+        icon: null,
+        searchBox: null,
 
         initialize: function (options) {
             if (options) {
@@ -21,25 +26,74 @@
         },
 
         _buildContainer: function () {
+
             // build structure
             this.container = L.DomUtil.create("div", "leaflet-gac-container");
             var searchWrapper = L.DomUtil.create("div", "leaflet-gac-wrapper");
+            this.searchBox = L.DomUtil.create("input", "leaflet-gac-control");
+            this.autocomplete = new google.maps.places.Autocomplete(this.searchBox, this.options.autocomplete_options);
 
-            var searchBox = L.DomUtil.create("input", "leaflet-gac-control");
+            // if collapse mode set - create icon and register events
+            if (this.options.collapsed_mode) {
+                this.collapsedModeIsExpanded = false;
 
-            // create and bind autocomplete
-            this.autocomplete = new google.maps.places.Autocomplete(searchBox, this.options.autocomplete_options);
+                this.icon = L.DomUtil.create("div", "leaflet-gac-search-btn");
+                L.DomEvent
+                    .on(this.icon, "click", this._showSearchBar, this);
 
-            this.container.appendChild(
+                this.icon.appendChild(
+                    L.DomUtil.create("div", "leaflet-gac-search-icon")
+                );
+
                 searchWrapper.appendChild(
-                    searchBox
-                )
+                    this.icon
+                );
+                L.DomUtil.addClass(this.searchBox, "leaflet-gac-hidden");
+            }
+
+            searchWrapper.appendChild(
+                this.searchBox
             );
+            // create and bind autocomplete
+            this.container.appendChild(
+                searchWrapper
+            );
+
         },
+
+        //***
+        // Collapse mode callbacks
+        //***
+
+        _showSearchBar: function () {
+            this._toggleSearch(true);
+        },
+
+        _hideSearchBar: function () {
+            // if element is expanded, we need to change expanded flag and call collapse handler
+            if (this.collapsedModeIsExpanded) {
+                this._toggleSearch(false);
+            }
+        },
+
+        _toggleSearch: function (shouldDisplaySearch) {
+            if (shouldDisplaySearch) {
+                L.DomUtil.removeClass(this.searchBox, "leaflet-gac-hidden");
+                L.DomUtil.addClass(this.icon, "leaflet-gac-hidden");
+            } else {
+                L.DomUtil.addClass(this.searchBox, "leaflet-gac-hidden");
+                L.DomUtil.removeClass(this.icon, "leaflet-gac-hidden");
+            }
+            this.collapsedModeIsExpanded = shouldDisplaySearch;
+        },
+
+        //***
+        // Default success callback
+        //***
 
         onLocationComplete: function (place, map) {
             // default callback
-            if(!place.geometry){
+            if (!place.geometry) {
                 alert("Location not found");
                 return;
             }
@@ -54,6 +108,10 @@
             // stop propagation of click events
             L.DomEvent.addListener(this.container, 'click', L.DomEvent.stop);
             L.DomEvent.disableClickPropagation(this.container);
+            if (this.options.collapsed_mode) {
+                // if collapse mode - register handler
+                this._map.on('dragstart click', this._hideSearchBar, this);
+            }
             return this.container;
         },
 
@@ -65,7 +123,7 @@
                 corner = map._controlCorners[pos];
 
             L.DomUtil.addClass(container, 'leaflet-control');
-            if(this.options.prepend){
+            if (this.options.prepend) {
                 corner.insertBefore(container, corner.firstChild);
             } else {
                 corner.appendChild(container)
