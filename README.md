@@ -55,10 +55,10 @@ new L.Control.GPlaceAutocomplete({
 
 These options can be set up when creating the control with `autocompleteOptions`.
 
-Option                | Default       | Description
+Option                | Default       | Version | Description
 ----------------------|---------------|---------------------------------------------------------
-`position`            | `topright`    | any valid LeafLet [position](http://leafletjs.com/reference.html#control-positions)
-`prepend`             | `true`:bool   | If true, control will prepended to other existing controls, if false, control will be appended
-`callback`            | -             | any valid function as callback. By default internal callback is set and just pan the map to found position
-`autocomplete_options`| {}            | default options for google autocomplete
-`collapsed_mode`      | `false`:bool  | if set to true, then just click-able icon will be displayed
+`position`            | `topright`    | v0.0.5  | any valid LeafLet [position](http://leafletjs.com/reference.html#control-positions)
+`prepend`             | `true`:bool   | v0.0.5  | If true, control will prepended to other existing controls, if false, control will be appended
+`callback`            | -             | v0.0.5  | any valid function as callback. By default internal callback is set and just pan the map to found position
+`autocomplete_options`| {}            | v0.0.5  | default options for google autocomplete
+`collapsed_mode`      | `false`:bool  | master  | if set to true, then just click-able icon will be displayed
