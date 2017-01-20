@@ -1,10 +1,10 @@
 .leaflet-gac-wrapper {
-    height: 26px;
+    height: 30px;
 }
 
 .leaflet-control-container .leaflet-gac-control {
     width: 300px;
-    height: 26px;
+    height: 30px;
     padding: 0 7px;
     border-radius: 5px;
     border: 1px #d0d0d0 solid;
@@ -22,8 +22,8 @@
 
 .leaflet-control-container .leaflet-gac-search-btn {
     background: #fff;
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     border-radius: 4px;
 }
 
