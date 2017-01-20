@@ -29,7 +29,7 @@
 
             // build structure
             this.container = L.DomUtil.create("div", "leaflet-gac-container leaflet-bar");
-            var searchWrapper = L.DomUtil.create("a", "leaflet-gac-wrapper leaflet-bar-part");
+            var searchWrapper = L.DomUtil.create("div", "leaflet-gac-wrapper");
             this.searchBox = L.DomUtil.create("input", "leaflet-gac-control");
             this.autocomplete = new google.maps.places.Autocomplete(this.searchBox, this.options.autocomplete_options);
 
@@ -80,6 +80,7 @@
             if (shouldDisplaySearch) {
                 L.DomUtil.removeClass(this.searchBox, "leaflet-gac-hidden");
                 L.DomUtil.addClass(this.icon, "leaflet-gac-hidden");
+                this.searchBox.focus();
             } else {
                 L.DomUtil.addClass(this.searchBox, "leaflet-gac-hidden");
                 L.DomUtil.removeClass(this.icon, "leaflet-gac-hidden");
