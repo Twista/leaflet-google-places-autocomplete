@@ -6,6 +6,11 @@
     border: 1px #d0d0d0 solid;
 }
 
+.leaflet-control-container .leaflet-right .leaflet-gac-control {
+    position: absolute;
+    right: 0px;
+}
+
 .leaflet-control-container .leaflet-gac-control:focus {
     outline: none;
 }
