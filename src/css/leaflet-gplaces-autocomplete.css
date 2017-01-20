@@ -6,13 +6,19 @@
     border: 1px #d0d0d0 solid;
 }
 
+.leaflet-control-container .leaflet-right .leaflet-gac-control {
+    position: absolute;
+    right: 0px;
+}
+
 .leaflet-control-container .leaflet-gac-control:focus {
     outline: none;
 }
 
 .leaflet-control-container .leaflet-gac-search-btn {
     background: #fff;
-    padding: 5px;
+    padding-left: 2px;
+    padding-top: 2px;
     width: 21px;
     height: 21px;
     border-radius: 4px;
@@ -28,4 +34,3 @@
 .leaflet-control-container .leaflet-gac-hidden {
     display: none;
 }
-

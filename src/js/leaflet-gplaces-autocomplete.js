@@ -28,8 +28,8 @@
         _buildContainer: function () {
 
             // build structure
-            this.container = L.DomUtil.create("div", "leaflet-gac-container");
-            var searchWrapper = L.DomUtil.create("div", "leaflet-gac-wrapper");
+            this.container = L.DomUtil.create("div", "leaflet-gac-container leaflet-bar");
+            var searchWrapper = L.DomUtil.create("a", "leaflet-gac-wrapper leaflet-bar-part");
             this.searchBox = L.DomUtil.create("input", "leaflet-gac-control");
             this.autocomplete = new google.maps.places.Autocomplete(this.searchBox, this.options.autocomplete_options);
 
