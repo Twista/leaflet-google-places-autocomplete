@@ -61,4 +61,4 @@ Option                | Default       | Version | Description
 `prepend`             | `true`:bool   | v0.0.5  | If true, control will prepended to other existing controls, if false, control will be appended
 `callback`            | -             | v0.0.5  | any valid function as callback. By default internal callback is set and just pan the map to found position
 `autocomplete_options`| {}            | v0.0.5  | default options for google autocomplete
-`collapsed_mode`      | `false`:bool  | master  | if set to true, then just click-able icon will be displayed
+`collapsed_mode`      | `false`:bool  | v0.0.6  | if set to true, then just click-able icon will be displayed
