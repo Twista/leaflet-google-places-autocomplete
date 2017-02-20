@@ -13,14 +13,6 @@ Simple extension to add Google Places autocomplete into map.
 
     npm install --save leaflet-google-places-autocomplete
 
-## Examples
-
-### City autocomplete
-![City autocomplete](example/screen-city.png)
-
-### Places autocomplete
-![Places autocomplete](example/screen-poi.png)
-
 ## Usage
 
 Make sure you have Google Places library **with valid API key** loaded on page.
