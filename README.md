@@ -30,14 +30,12 @@ new L.Control.GPlaceAutocomplete().addTo(map);
 ```javascript
 
 new L.Control.GPlaceAutocomplete({
-	position: "topleft",
-	callback: function(location){
-		// object of google place is given
-		map.panTo(location);
-
+	callback: function(place){
+		var loc = place.geometry.location;
+		map.panTo([loc.lat(), loc.lng()]);
+		map.setZoom(18);
 	}
-})
-.addTo(map);
+}).addTo(map);
 
 ```
 
