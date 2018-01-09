@@ -32,8 +32,7 @@ new L.Control.GPlaceAutocomplete().addTo(map);
 new L.Control.GPlaceAutocomplete({
 	callback: function(place){
 		var loc = place.geometry.location;
-		map.panTo([loc.lat(), loc.lng()]);
-		map.setZoom(18);
+		map.setView( [loc.lat(), loc.lng()], 18);
 	}
 }).addTo(map);
 
