@@ -51,4 +51,4 @@ Option                | Default       | Version | Description
 `callback`            | -             | v0.0.5  | any valid function as callback. By default internal callback is set and just pan the map to found position
 `autocomplete_options`| {}            | v0.0.5  | default options for google autocomplete
 `collapsed_mode`      | `false`:bool  | v0.0.6  | if set to true, then just click-able icon will be displayed
-`placeholder`         | `null`:string | v0.0.7  | custom placeholder for input text
+`placeholder`         | `null`:string | v0.0.9  | custom placeholder for input text
